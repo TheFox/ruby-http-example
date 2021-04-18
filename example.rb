@@ -17,7 +17,8 @@ if uri.scheme.to_s.downcase == 'https'
 	http.use_ssl = true
 	http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 end
-response = http.request(Net::HTTP::Get.new(uri))
+request = Net::HTTP::Get.new(uri)
+response = http.request(request)
 
 puts "response code: #{response.code}"
 if response.code.to_i == 200
